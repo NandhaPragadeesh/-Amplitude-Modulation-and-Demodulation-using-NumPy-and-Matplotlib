@@ -23,13 +23,38 @@ __Algorithm__:
 4. Generate Carrier Signal: Define the carrier signal as a cosine wave. 
 5. Modulate Signal: Apply the AM formula to obtain the modulated signal. 
 6. Plot the Signals: Use Matplotlib to plot the message signal, carrier signal, and modulated signal.
+PROGRAM:
+```
+import numpy as np 
+import matplotlib.pyplot as plt 
+Am = 12.6
+Fm = 250
+Ac = 21.6
+Fc = 2500
+Fs = 50000
+t = np.arange(0, 2/Fm, 1/Fs) 
+em = Am * np.sin(2 * np.pi * Fm * t) 
+plt.subplot(3, 1, 1) 
+plt.plot(t, em) 
+plt.grid() 
+ec = Ac * np.sin(2 * np.pi * Fc * t) 
+plt.subplot(3, 1, 2) 
+plt.plot(t, ec) 
+plt.grid() 
+eam = (Ac + (Am * np.sin(2 * np.pi * Fm * t))) * np.sin(2 * np.pi * Fc * t) 
+plt.subplot(3, 1, 3)
+plt.plot(t, eam) 
+plt.grid() 
+plt.tight_layout() 
+plt.show()
+```
 
  Tabulation:
+ 
  ![WhatsApp Image 2025-11-22 at 11 27 07 PM](https://github.com/user-attachments/assets/2f2a5b16-deeb-4bc1-ad7d-7c820d5807c3)
 
 
  __Output__:
-
  <img width="1493" height="1199" alt="Screenshot 2025-11-22 233755" src="https://github.com/user-attachments/assets/a6f2c64c-b736-448e-8f3f-8ac54f686b90" />
 
 
